@@ -7,6 +7,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(
@@ -27,10 +28,10 @@ public class Owner {
     private Long id;
 
     @Column(nullable = false, length = 80)
-    private String firstname;
+    private String firstName;
 
     @Column(nullable = false, length = 80)
-    private String lastname;
+    private String lastName;
 
     @Column(length = 255)
     private String email;
@@ -40,12 +41,12 @@ public class Owner {
 
     @CreatedDate
     @Column
-    private Instant createdDate;
+    private Instant createdAt;
 
     @LastModifiedDate
     @Column(nullable = false)
     private Instant updatedAt;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private List<Car>cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 }

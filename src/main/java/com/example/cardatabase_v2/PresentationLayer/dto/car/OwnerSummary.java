@@ -1,4 +1,10 @@
 package com.example.cardatabase_v2.PresentationLayer.dto.car;
 
-public class OwnerSummary {
+public record OwnerSummary(
+        Long id,
+        String firstName,
+        String lastName,
+        String email,
+        String phone
+) {
 }
